@@ -31,6 +31,9 @@ config.module.loaders.push({
     'style-loader',
     'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
   ]
+}, {
+  test: /\.scss$/,
+  loader: 'style!css!sass'
 });
 
 
@@ -42,7 +45,8 @@ config.plugins.push(
     'process.env': {
       NODE_ENV: JSON.stringify('development')
     }
-  })
+  }),
+  new webpack.DefinePlugin({ 'global.GENTLY': false })
 );
 
 config.target = webpackTargetElectronRenderer(config);

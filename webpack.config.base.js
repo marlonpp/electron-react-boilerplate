@@ -14,6 +14,9 @@ module.exports = {
       loader: 'json-loader'
     }]
   },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, './node_modules')]
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
